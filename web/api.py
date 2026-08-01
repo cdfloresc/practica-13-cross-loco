@@ -87,3 +87,13 @@ def predict(data: InferenceInputP13):
         "domain_shift": "Bajo (Alta Confianza)" if data.biome_similarity > 0.75 else "Alto (Riesgo OOD)",
         "risk_color": "#7c3aed" if r2_expected > 0.50 else "#ef4444"
     }
+
+# Servir archivos estáticos del frontend React unificado
+from fastapi.staticfiles import StaticFiles
+
+static_dir = os.path.join(os.path.dirname(__file__), "static")
+if not os.path.exists(static_dir):
+    static_dir = os.path.join(os.path.dirname(__file__), "dist")
+
+if os.path.exists(static_dir):
+    app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
