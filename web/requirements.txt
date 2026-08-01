@@ -1,0 +1,9 @@
+fastapi>=0.100.0
+uvicorn>=0.22.0
+scikit-learn
+xgboost
+torch
+joblib
+numpy
+pandas
+pyarrow
