@@ -36,7 +36,7 @@ class InferenceInputP13(BaseModel):
     urban_ratio: float = 0.35
     biome_similarity: float = 0.85
 
-@app.get("/")
+@app.get("/api/health")
 def read_root():
     return {"status": "online", "practice": "P13", "title": "Cross-LOCO"}
 
